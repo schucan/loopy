@@ -52,8 +52,8 @@ function Loopy(config){
 	self.label = new Labeller(self);
 
 	// Play Controls
-	self.playbar = new PlayControls(self);
-	self.playbar.showPage("Editor"); // start here
+	//self.playbar = new PlayControls(self);
+	//self.playbar.showPage("Editor"); // start here
 
 	// Modal
 	self.modal = new Modal(self);
@@ -107,7 +107,7 @@ function Loopy(config){
 			self.showPlayTutorial = true; // show once!
 			if(!self.embedded) self.wobbleControls=45; // only if NOT embedded
 			self.sidebar.showPage("Edit");
-			self.playbar.showPage("Player");
+			//self.playbar.showPage("Player");
 			self.sidebar.dom.setAttribute("mode","play");
 			self.toolbar.dom.setAttribute("mode","play");
 			document.getElementById("canvasses").removeAttribute("cursor"); // TODO: EVENT BASED
@@ -120,7 +120,7 @@ function Loopy(config){
 			self.showPlayTutorial = false; // donezo
 			self.wobbleControls = -1; // donezo
 			self.sidebar.showPage("Edit");
-			self.playbar.showPage("Editor");
+			//self.playbar.showPage("Editor");
 			self.sidebar.dom.setAttribute("mode","edit");
 			self.toolbar.dom.setAttribute("mode","edit");
 			document.getElementById("canvasses").setAttribute("cursor", self.toolbar.currentTool); // TODO: EVENT BASED
@@ -216,12 +216,12 @@ function Loopy(config){
 		var noUI = !!parseInt(_getParameterByName("no_ui")); // force to Boolean
 		if(noUI){
 			_PADDING_BOTTOM = _PADDING;
-			self.playbar.dom.style.display = "none";
+			//self.playbar.dom.style.display = "none";
 		}
 
 		// Fullscreen canvas
 		document.getElementById("canvasses").setAttribute("fullscreen","yes");
-		self.playbar.dom.setAttribute("fullscreen","yes");
+		//self.playbar.dom.setAttribute("fullscreen","yes");
 		publish("resize");
 
 		// Center & SCALE The Model

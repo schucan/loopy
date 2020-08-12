@@ -22,21 +22,28 @@ Node.DEFAULT_RADIUS = 60;
 function wrapText(context, text, x, y, maxWidth, lineHeight) {
         var words = text.split(' ');
         var line = '';
+		var lines = [];
 
         for(var n = 0; n < words.length; n++) {
           var testLine = line + words[n] + ' ';
           var metrics = context.measureText(testLine);
           var testWidth = metrics.width;
           if (testWidth > maxWidth && n > 0) {
-            context.fillText(line, x, y);
+			lines.push(line);
             line = words[n] + ' ';
-            y += lineHeight;
           }
           else {
             line = testLine;
           }
         }
-        context.fillText(line, x, y);
+        lines.push(line);
+		var numLines = lines.length;
+		y = y - Math.round((numLines * lineHeight / 2));
+		for (var i = 0; i < numLines; i++) {
+			context.fillText(lines[i], x, y);
+			y += lineHeight;
+		}
+		
       }
       
 

@@ -58,8 +58,21 @@ function Label(model, config){
 		ctx.translate(0, -(Label.FONTSIZE*lines.length)/2);
 		for(var i=0; i<lines.length; i++){
 			var line = lines[i];
-			ctx.fillText(line, 0, 0);
-			ctx.translate(0, Label.FONTSIZE);
+			if ((i== 0) && ((line == '+') || (line == '-'))) {
+				ctx.font = "700 "+(Label.FONTSIZE * 2)+"px sans-serif";
+				if (line == '-') {
+					ctx.fillStyle = "#f00";
+				} else {
+					ctx.fillStyle = "#0f0";
+				}
+				ctx.fillText(line, 0, 0);
+				ctx.translate(0, Label.FONTSIZE);
+				ctx.font = "100 "+Label.FONTSIZE+"px sans-serif";
+				ctx.fillStyle = "#000";
+			} else {
+				ctx.fillText(line, 0, 0);
+				ctx.translate(0, Label.FONTSIZE);
+			}
 		}
 
 		// Restore

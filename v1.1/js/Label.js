@@ -58,14 +58,15 @@ function Label(model, config){
 		ctx.translate(0, -(Label.FONTSIZE*lines.length)/2);
 		for(var i=0; i<lines.length; i++){
 			var line = lines[i];
-			if ((i== 0) && ((line == '+') || (line == '-'))) {
+			if ((i== 0) && 
+					((line == '+') || (line == '-') || (line.toLowerCase() == 'r') || (line.toLowerCase() == 'b'))) {
 				ctx.font = "700 "+(Label.FONTSIZE * 2)+"px sans-serif";
-				if (line == '-') {
+				if ((line == '-')||(line.toLowerCase() == 'b')) {
 					ctx.fillStyle = "#f00";
 				} else {
 					ctx.fillStyle = "#0f0";
 				}
-				ctx.fillText(line, 0, 0);
+				ctx.fillText(line.toUpperCase(), 0, 0);
 				ctx.translate(0, Label.FONTSIZE);
 				ctx.font = "100 "+Label.FONTSIZE+"px sans-serif";
 				ctx.fillStyle = "#000";

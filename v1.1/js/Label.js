@@ -60,16 +60,25 @@ function Label(model, config){
 			var line = lines[i];
 			if ((i== 0) && 
 					((line == '+') || (line == '-') || (line.toLowerCase() == 'r') || (line.toLowerCase() == 'b'))) {
-				ctx.font = "700 "+(Label.FONTSIZE * 2)+"px sans-serif";
-				if ((line == '-')||(line.toLowerCase() == 'b')) {
-					ctx.fillStyle = "#f00";
-				} else {
-					ctx.fillStyle = "#0f0";
+				ctx.font = "900 "+(Label.FONTSIZE * 2)+"px sans-serif";
+				
+				ctx.fillStyle = "#44f";
+				var radgrad = ctx.createRadialGradient(0,0,0,0,0,Label.FONTSIZE * 2);
+				radgrad.addColorStop(0, '#e0e0ff');
+				radgrad.addColorStop(0.3, '#e0e0ff');
+				radgrad.addColorStop(1, 'rgba(224, 224, 255,0)');
+
+				// draw shape
+				ctx.fillStyle = radgrad;
+				ctx.fillRect(-75,-75,150,150);
+				ctx.fillStyle = "#44f";
+				if (line == '-') {
+					line = '–'; // <- this is endash; emdash would be this: '—'
 				}
 				ctx.fillText(line.toUpperCase(), 0, 0);
 				ctx.translate(0, Label.FONTSIZE);
 				ctx.font = "100 "+Label.FONTSIZE+"px sans-serif";
-				ctx.fillStyle = "#000";
+				//ctx.fillStyle = "#000";
 			} else {
 				ctx.fillText(line, 0, 0);
 				ctx.translate(0, Label.FONTSIZE);

@@ -191,7 +191,7 @@ function Loopy(config){
 	};
 	
 	// "BLANK START" DATA:
-	var _blankData = "[[[1,403,223,1,%22something%22,4],[2,405,382,1,%22something%2520else%22,5]],[[2,1,94,-1,0],[1,2,89,1,0]],[[609,311,%22need%2520ideas%2520on%2520what%2520to%250Asimulate%253F%2520how%2520about%253A%250A%250A%25E3%2583%25BBtechnology%250A%25E3%2583%25BBenvironment%250A%25E3%2583%25BBeconomics%250A%25E3%2583%25BBbusiness%250A%25E3%2583%25BBpolitics%250A%25E3%2583%25BBculture%250A%25E3%2583%25BBpsychology%250A%250Aor%2520better%2520yet%252C%2520a%250A*combination*%2520of%250Athose%2520systems.%250Ahappy%2520modeling!%22]],2%5D";
+	var _blankData = "[[[3,271,409,0.5,%22ships%22,0],[4,496,414,0.5,%22catch%22,0],[5,775,413,0.5,%22fish%22,0],[6,1015,417,0.5,%22new%2520fish%22,0]],[[3,4,113,1,0],[4,3,122,1,0],[5,6,96,1,0],[6,5,116,1,0],[4,5,103,-1,0],[5,4,132,1,0]],[[375,437,%22%252B%22],[894,428,%22%252B%22],[635,449,%22-%250ALimit%2520to%2520%250AGrowth%22]],6%5D";
 
 	self.loadFromURL = function(){
 		var data = _getParameterByName("data");

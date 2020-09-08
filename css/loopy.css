@@ -319,3 +319,13 @@ MODAL
 #modal iframe{
 	border: none;
 }
+
+/**********
+
+MODAL
+
+**********/
+
+@media print {
+	#sidebar, #playbar, #toolbar {display:none;}
+}

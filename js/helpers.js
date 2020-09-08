@@ -26,6 +26,25 @@ window.onbeforeunload = function(e) {
 	}
 };
 
+function getCanvasImage(_ctx, _bgColor){
+	var tmpCtx = document.createElement("canvas").getContext("2d");
+	tmpCtx.canvas.width  = _ctx.canvas.width;
+	tmpCtx.canvas.height = _ctx.canvas.height;
+	tmpCtx.fillStyle = _bgColor;
+	tmpCtx.fillRect(0, 0, tmpCtx.canvas.width, tmpCtx.canvas.height);
+	tmpCtx.drawImage(_ctx.canvas, 0, 0);
+
+	return tmpCtx.canvas;
+}
+
+function createPNG() {
+	var c=document.getElementsByTagName("canvas")[0];
+	var ctx = c.getContext('2d');
+	var d=getCanvasImage(ctx, "#fff");
+	d.toBlob(blob => navigator.clipboard.write([new ClipboardItem({"image/png": blob})]));
+	alert('CLD copied to clipboard');
+}
+		
 function _createCanvas(){
 
 	var canvasses = document.getElementById("canvasses");

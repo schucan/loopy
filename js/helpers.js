@@ -41,8 +41,19 @@ function createPNG() {
 	var c=document.getElementsByTagName("canvas")[0];
 	var ctx = c.getContext('2d');
 	var d=getCanvasImage(ctx, "#fff");
-	d.toBlob(blob => navigator.clipboard.write([new ClipboardItem({"image/png": blob})]));
-	alert('CLD copied to clipboard');
+	try {
+		d.toBlob(function(blob) { 
+			try {
+				var item = new ClipboardItem({ "image/png": blob });
+				navigator.clipboard.write([item]); 
+				alert('CLD copied to clipboard.');
+			} catch (x) {
+				alert('Can\'t copy in this browser. Try another one (Chrome might work).');
+			}
+		});
+	} catch (x) {
+		alert('Can\'t copy in this browser. Try another one (Chrome might work).');
+	}
 }
 		
 function _createCanvas(){
